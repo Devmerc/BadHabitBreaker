@@ -6,16 +6,29 @@
   <thead>
     <tr>
       <th>Description</th>
-      <th>User</th>
+      <th>Progress</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @habits.each do |habit| %>
+      <% progress_now = ((habit.progress.to_f/habit.goal.to_f)*100).round %>
       <tr>
         <td><%= habit.description %></td>
-        <td><%= habit.user[:name] %></td>
+        <td><%= habit.progress %></td>
+        <td><%= habit.goal %></td>
+        <td width='50%' ><div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="<%= progress_now %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress_now %>%;">
+            <% if habit.progress == 0 || habit.goal == 0 %>
+                0%
+            <% elsif habit.progress == nil || habit.goal == nil %>
+                0%
+            <% else %>
+              <%= progress_now %>%
+            <% end %>
+          </div>
+        </div></td>
         <td><%= link_to 'Show', habit %></td>
         <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
         <td><%= link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
