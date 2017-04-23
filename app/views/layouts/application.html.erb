@@ -11,24 +11,24 @@
   <body>
 
       <% if user_signed_in? %>
-        <li>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-        </li>
 
         <div class="jumbotron">
-          <h1><%= User.name %></h1>
+          <h1><%= current_user.name %></h1>
           <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+          </p>
         
         </div>
       <% else %>
-        <li>
-          <%= link_to('Login', new_user_session_path)  %>  
-        </li>
 
         <div class="jumbotron">
           <h1>BadHabitBreaker</h1>
           <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+          <p><a class="btn btn-lg btn-success" href="/users/sign_up" role="button">Sign up today</a></p>
+          <p>
+            <% link_to('Login', new_user_session_path)  %>  
+          </p>
         </div>
       <% end %>
 

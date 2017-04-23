@@ -4,7 +4,7 @@ class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json
   def index
-    @habits = Habit.all
+    @habits = current_user.habits
   end
 
   # GET /habits/1
@@ -69,6 +69,6 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:description, :user_id)
+      params.require(:habit).permit(:description, :user_id, :goal, :progress)
     end
 end

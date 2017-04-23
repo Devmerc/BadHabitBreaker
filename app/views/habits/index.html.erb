@@ -15,7 +15,7 @@
     <% @habits.each do |habit| %>
       <tr>
         <td><%= habit.description %></td>
-        <td><%= habit.user %></td>
+        <td><%= habit.user[:name] %></td>
         <td><%= link_to 'Show', habit %></td>
         <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
         <td><%= link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
