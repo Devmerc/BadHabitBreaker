@@ -10,15 +10,34 @@
 
   <body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://www.google.com"><img id="logo1" src="/assets/Hammer-a64346378a3bfe7a5a367160e4beb0610c54bfff5bc7a8d3f3cd857f4b3a8292.png" alt="Hammer" style="
+  width: 50px;
+  height: 50px;"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+<%= render partial: "devise/sessions/login", locals: { devise_mapping: nil, resource: User.new, resource_name: :user } %>
+
+
+</nav>
+
       <% if user_signed_in? %>
 
-        <div class="jumbotron">
+        <div class="jumbotron" >
           <h1><%= current_user.name %></h1>
           <p class="lead">"Mastering others is strength.  Mastering yourself is True Power." -Lao Tzu</p>
           <p>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           </p>
-        
+
         </div>
       <% else %>
 
@@ -27,7 +46,7 @@
           <p class="lead">A life well-lived is a culmination of good choices.  Be free to make good choices.  Start breaking your bad habits today!</p>
           <p><a class="btn btn-lg btn-success" href="/users/sign_up" role="button">Sign up today</a></p>
           <p>
-            <% link_to('Login', new_user_session_path)  %>  
+            <% link_to('Login', new_user_session_path)  %>
           </p>
         </div>
       <% end %>
@@ -37,9 +56,8 @@
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    
+
      <% if Rails.env.development? %>
-       <%= console %>
      <% end %>
 
   </body>

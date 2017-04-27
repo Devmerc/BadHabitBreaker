@@ -1,3 +1,64 @@
 // Place all the styles related to the Forums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-inverse {
+    background-color: #5adc6c!important;
+    border-color: #101010;
+}
+#logo1 {
+  float:left;
+}
+.field {
+  display: inline;
+}
+img {
+    align: left;
+}
+.navbar-header {
+    float: left;
+}
+
+.container {
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #101010;
+    float: right;
+    display: inline-block;
+    margin-right: 0;
+}
+.actions{
+  float: right;
+  border-left: 15px solid transparent;
+
+}
+h2{
+  text-align: center;
+  border-right: 55px solid transparent;
+}
+.actions input {
+  display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+}
+.jumbotron{
+background:url("https://3pktan2l5dp043gw5f49lvhc-wpengine.netdna-ssl.com/wp-content/uploads/2015/03/Scarlet-macaw_ammit-jack_SS.jpg")!important;
+}
