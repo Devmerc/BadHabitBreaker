@@ -1,5 +1,28 @@
-<h2>Log in</h2>
+<div class="row login-stuff">
+  <div class="col-xs-8 col-xs-offset-2">
+    <h2>Log in</h2>
 
-<%= render "devise/sessions/login" %>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <%= render "devise/sessions/login" %>
 
-<%= render "devise/shared/links" %>
+          <%= render "devise/shared/links" %>
+        </div>
+        <!-- /.col-xs-10 col-xs-offset-1 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.col-md-8 -->
+
+
+</div>
+
+<style>
+  .login-stuff {
+    padding:  50px 0;
+    background-color: rgba(232, 27, 27, 0.3);
+  }
+
+</style>

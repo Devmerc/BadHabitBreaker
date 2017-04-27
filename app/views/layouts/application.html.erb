@@ -24,30 +24,49 @@
   height: 50px;"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-<%= render partial: "devise/sessions/login", locals: { devise_mapping: nil, resource: User.new, resource_name: :user } %>
+        <% if !signed_in? %>
+          <%= render partial: "devise/sessions/login", locals: { devise_mapping: nil, resource: User.new, resource_name: :user } %>
+        <% end %>
 
 
 </nav>
 
+
+
       <% if user_signed_in? %>
 
         <div class="jumbotron" >
-          <h1><%= current_user.name %></h1>
-          <p class="lead">"Mastering others is strength.  Mastering yourself is True Power." -Lao Tzu</p>
-          <p>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-          </p>
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2 text-center jumbotron-text">
+                <h1><%= current_user.name %></h1>
+                <p class="lead">"Mastering others is strength.  Mastering yourself is True Power." -Lao Tzu</p>
+                <p>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                </p>
+              </div>
+              <!-- /.col-xs-8 col-xs-offset-2 -->
+            </div>
+            <!-- /.row -->
+
+
 
         </div>
       <% else %>
 
         <div class="jumbotron">
-          <h1>BadHabitBreaker</h1>
-          <p class="lead">A life well-lived is a culmination of good choices.  Be free to make good choices.  Start breaking your bad habits today!</p>
-          <p><a class="btn btn-lg btn-success" href="/users/sign_up" role="button">Sign up today</a></p>
-          <p>
-            <% link_to('Login', new_user_session_path)  %>
-          </p>
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2 text-center jumbotron-text">
+                <h1>BadHabitBreaker</h1>
+                <p class="lead">A life well-lived is a culmination of good choices.  Be free to make good choices.  Start breaking your bad habits today!</p>
+                <p><a class="btn btn-lg btn-success" href="/users/sign_up" role="button">Sign up today</a></p>
+                <p>
+                  <% link_to('Login', new_user_session_path)  %>
+                </p>
+              </div>
+              <!-- /.col-xs-8 col-xs-offset-2 -->
+            </div>
+            <!-- /.row -->
+
         </div>
       <% end %>
 
@@ -58,7 +77,17 @@
       <p class="alert"><%= alert %></p>
 
      <% if Rails.env.development? %>
+     <%= console %>
      <% end %>
-
+    <style>
+      .jumbotron-text {
+        height:100%;
+        background-color: rgba(211, 206, 206, 0.5)
+      }
+      .jumbotron {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    </style>
   </body>
 </html>
